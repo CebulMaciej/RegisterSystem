@@ -1,0 +1,28 @@
+package com.maciejcebula.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * Created by Maciej Cebula on 25.04.2017.
+ */
+@Controller
+@RequestMapping("/")
+public class ViewController {
+
+    @GetMapping
+    public String home(Model model){
+        return "home";
+    }
+    @GetMapping(path="/login")
+    public String login(Model model){
+        return "login";
+    }
+    @GetMapping(path="/register")
+    public String register(Model model){
+        return "register";
+    }
+
+}
