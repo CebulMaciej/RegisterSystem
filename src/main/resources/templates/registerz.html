@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Serwis Ankietyzacji - Rejestracja</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link  rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+</head>
+<body>
+
+<div class="container">
+    <div id="signupbox" style=" margin-top:80px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title"><b>System Ankietyzacji</b></div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px">Logowanie</div>
+            </div>
+            <div class="panel-body" >
+                <form id="signupform" method="post" class="form-horizontal" role="form" action="/user/register.try">
+                    <div style="margin-bottom: 5px;top: -12px;" class="input-group text-center col-md-offset-4 col-md-4 col-sm-offset-5 col-sm-4">
+                        <h3>Rejestracja</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="login" class="col-md-2 control-label">Login</label>
+                        <div class="col-md-9">
+                            <input type="text" id="login" class="form-control" name="login" placeholder="Login"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="col-md-2 control-label">Imię</label>
+                        <div class="col-md-9">
+                            <input type="text" id="firstName" class="form-control" name="firstName" placeholder="firstName"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="col-md-2 control-label">Nazwisko</label>
+                        <div class="col-md-9">
+                            <input type="text" id="lastName" class="form-control" name="lastName" placeholder="lastName"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress" class="col-md-2 control-label">E-mail</label>
+                        <div class="col-md-9">
+                            <input type="text" id="emailAddress" class="form-control" name="emailAddress" placeholder="emailAddress"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber" class="col-md-2 control-label">Telefon</label>
+                        <div class="col-md-9">
+                            <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="phoneNumber"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_register" class="col-md-2 control-label">Hasło</label>
+                        <div class="col-md-9">
+                            <input type="password" id="password_register" class="form-control" name="password" placeholder="Hasło"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- Button -->
+                        <input type="submit"><button id="btn-login" type="button" class="btn btn-success center-block"><i class="icon-hand-right"></i> Zaloguj </button></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

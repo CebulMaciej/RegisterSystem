@@ -1,72 +1,135 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Serwis Ankietyzacji - Rejestracja</title>
-    <link rel="stylesheet" th:href="@{/style.css}"/>
-    <link  rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+	<title>Ankietyzacja</title>
+	<link rel="stylesheet" type="text/css" href="../static/style.css"></link>
+	<link rel="stylesheet" th:href="@{/style.css}"/>
+	<link  rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"></link>
+	<link rel="stylesheet" type="text/css" href="../static/bootstrap.css"></link>
+	<script type="text/javascript" src=""></script>
 </head>
 <body>
-
-<div class="container">
-    <div id="signupbox" style=" margin-top:80px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title"><b>System Ankietyzacji</b></div>
-                <div style="float:right; font-size: 85%; position: relative; top:-10px">Logowanie</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.html">System ankietyzacji PRz</a>
             </div>
-            <div class="panel-body" >
-                <form id="signupform" method="post" class="form-horizontal" role="form" action="/user/register.try">
-                    <div style="margin-bottom: 5px;top: -12px;" class="input-group text-center col-md-offset-4 col-md-4 col-sm-offset-5 col-sm-4">
-                        <h3>Rejestracja</h3>
-                    </div>
-                    <div class="form-group">
-                        <label for="login" class="col-md-2 control-label">Login</label>
-                        <div class="col-md-9">
-                            <input type="text" id="login" class="form-control" name="login" placeholder="Login"></input>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstName" class="col-md-2 control-label">Imię</label>
-                        <div class="col-md-9">
-                            <input type="text" id="firstName" class="form-control" name="firstName" placeholder="firstName"></input>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName" class="col-md-2 control-label">Nazwisko</label>
-                        <div class="col-md-9">
-                            <input type="text" id="lastName" class="form-control" name="lastName" placeholder="lastName"></input>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="emailAddress" class="col-md-2 control-label">E-mail</label>
-                        <div class="col-md-9">
-                            <input type="text" id="emailAddress" class="form-control" name="emailAddress" placeholder="emailAddress"></input>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneNumber" class="col-md-2 control-label">Telefon</label>
-                        <div class="col-md-9">
-                            <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="phoneNumber"></input>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password_register" class="col-md-2 control-label">Hasło</label>
-                        <div class="col-md-9">
-                            <input type="password" id="password_register" class="form-control" name="password" placeholder="Hasło"></input>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Button -->
-                        <input type="submit"><button id="btn-login" type="button" class="btn btn-success center-block"><i class="icon-hand-right"></i> Zaloguj </button></input>
-                    </div>
-                </form>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="login.html">Zaloguj</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Zarejestruj</a>
+                    </li>
+                    <li>
+                        <a href="#">Kontakt</a>
+                    </li>
+                </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
-</div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!-- /.container -->
+    </nav>
+	<div class="centered">
+	<div class="container">
+	 	<div class="col-lg-4 col-xs-12">
+	 		<h1 class="text-center main-title">System ankietyzacji PRz</h1>
+	 	</div>
+		<div class="content col-lg-8 col-xs-12">
+			<form class="login-group" method="post" action="/user/login.try">
+			<div class="login-group-container">	
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="text" id="input-1" ></input>
+					<label class="input__label input__label--jiro" for="input-1">
+						<span class="input__label-content input__label-content--jiro">Login</span>
+					</label>
+				</span>
+
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="password" id="input-2" ></input>
+					<label class="input__label input__label--jiro" for="input-2">
+						<span class="input__label-content input__label-content--jiro">Hasło*</span>
+					</label>
+				</span>
+
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="password" id="input-3" ></input>
+					<label class="input__label input__label--jiro" for="input-3">
+						<span class="input__label-content input__label-content--jiro">Powtórz hasło*</span>
+					</label>
+				</span>
+
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="password" id="input-4" ></input>
+					<label class="input__label input__label--jiro" for="input-4">
+						<span class="input__label-content input__label-content--jiro">e-mail*</span>
+					</label>
+				</span>
+
+				<span class="input input--jiro">
+					<input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Zarejestruj"></input>
+				</span>
+				</div>
+			</form>
+			<div class="below-form-options">
+				<a href="#">Zapomniałeś hasła?</a>
+				<a href="#">Nie posiadasz jeszcze konta?</a>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<script src="../static/js/classie.js"></script>
+	<script>
+		(function() {
+				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+				if (!String.prototype.trim) {
+					(function() {
+						// Make sure we trim BOM and NBSP
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					// in case the input is already filled..
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					// events:
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+	</script>
+	<!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.min.js"></script>
 </body>
 </html>
