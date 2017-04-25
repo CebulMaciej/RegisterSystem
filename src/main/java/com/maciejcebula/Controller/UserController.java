@@ -26,8 +26,7 @@ public class UserController {
     @PostMapping(value="/register.try")
     public String registerTry(Model model, User user){
         if(userService.addUserToDataBase(user)){
-            model.addAttribute(user);
-            return "redirect:/home";
+            return "redirect:/";
         }
         else{
             return "redirect:/badhome";
@@ -36,7 +35,8 @@ public class UserController {
     @PostMapping(value = "/login.try")
     public String loginTry(Model model,User user){
         if(userService.login(user)){
-            return "redirect:/home";
+            model.addAttribute(user);
+            return "home_zal";
         }
         else
         {

@@ -46,35 +46,53 @@
 	 		<h1 class="text-center main-title">System ankietyzacji PRz</h1>
 	 	</div>
 		<div class="content col-lg-8 col-xs-12">
-			<form class="login-group" method="post" action="/user/login.try">
+			<form class="login-group" method="post" action="/user/register.try">
 			<div class="login-group-container">	
 				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="text" id="input-1" ></input>
-					<label class="input__label input__label--jiro" for="input-1">
+					<input class="input__field input__field--jiro" type="text" id="login" name="login" ></input>
+					<label class="input__label input__label--jiro" for="login">
 						<span class="input__label-content input__label-content--jiro">Login</span>
+					</label>
+				</span>
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="text" id="firstName" name="firstName" ></input>
+					<label class="input__label input__label--jiro" for="firstName">
+						<span class="input__label-content input__label-content--jiro">Imię</span>
+					</label>
+				</span>
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="text" id="lastName" name="lastName" ></input>
+					<label class="input__label input__label--jiro" for="lastName">
+						<span class="input__label-content input__label-content--jiro">Nazwisko</span>
 					</label>
 				</span>
 
 				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="password" id="input-2" ></input>
-					<label class="input__label input__label--jiro" for="input-2">
+					<input class="input__field input__field--jiro" type="password" id="password" name="password" ></input>
+					<label class="input__label input__label--jiro" for="password">
 						<span class="input__label-content input__label-content--jiro">Hasło*</span>
 					</label>
 				</span>
 
 				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="password" id="input-3" ></input>
-					<label class="input__label input__label--jiro" for="input-3">
+					<input class="input__field input__field--jiro" type="password" id="password2" name="password2" ></input>
+					<label class="input__label input__label--jiro" for="password2">
 						<span class="input__label-content input__label-content--jiro">Powtórz hasło*</span>
 					</label>
 				</span>
-
 				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="password" id="input-4" ></input>
-					<label class="input__label input__label--jiro" for="input-4">
-						<span class="input__label-content input__label-content--jiro">e-mail*</span>
+					<input class="input__field input__field--jiro" type="text" id="phoneNumber" name="phoneNumber" ></input>
+					<label class="input__label input__label--jiro" for="phoneNumber">
+						<span class="input__label-content input__label-content--jiro">Telefon*</span>
 					</label>
 				</span>
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="text" id="emailAddress" name="emailAddress" ></input>
+					<label class="input__label input__label--jiro" for="emailAddress">
+						<span class="input__label-content input__label-content--jiro">Email*</span>
+					</label>
+				</span>
+
 
 				<span class="input input--jiro">
 					<input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Zarejestruj"></input>

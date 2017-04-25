@@ -16,6 +16,10 @@ public class ViewController {
     public String home(Model model){
         return "home";
     }
+    @GetMapping("/home")
+    public String home2(Model model){
+        return "home";
+    }
     @GetMapping(path="/login")
     public String login(Model model){
         return "login";
@@ -23,6 +27,10 @@ public class ViewController {
     @GetMapping(path="/register")
     public String register(Model model){
         return "register";
+    }
+    @GetMapping(path="/home_zal")
+    public String zalogowano(Model model){
+        return "home_zal";
     }
 
 }
