@@ -2,12 +2,12 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Ankietyzacja</title>
-	<link rel="stylesheet" th:href="@{/style.css}"/>
+	<script type="text/javascript" src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+	<script type="text/javascript" src="../static/js/classie.js" th:src="@{/js/classie.js}"></script>
+	<script type="text/javascript" src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+	<link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}"/>
 	<link  rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
-	<link rel="stylesheet" type="text/css" href="../static/style.css"></link>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"></link>
-	<link rel="stylesheet" type="text/css" href="../static/bootstrap.css"></link>
-	<script type="text/javascript" src=""></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
 </head>
 <body>
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -34,7 +34,7 @@
                     <li>
                         <a href="#">Kontakt</a>
                     </li>
-					<li>
+					<li class="pull-right">
 						<a><span th:text="${session.name}">Niezalogowany </span></a>
 					</li>
                 </ul>
@@ -73,7 +73,7 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<img class="img-responsive" src="../static/designer.jpg"/>
+				<img class="img-responsive" src="../static/designer.jpg" th:src="@{designer.jpg}"/>
 			</div>
 		</div>
 	</div>
@@ -81,12 +81,10 @@
 	<footer class="footer-main">
 		<div class="container-fluid">
 			<div class="container">
-				<h1 class="text-center">Do zobczenia wkrótce!</h1>
+				<h1 class="text-center">Do zobaczenia wkrótce!</h1>
 			</div>
 		</div>
 	</footer>
-
-	<script src="../static/js/classie.js"></script>
 	<script>
 		(function() {
 				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
@@ -122,10 +120,5 @@
 				}
 			})();
 	</script>
-	<!-- jQuery -->
-    <script src="../static/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../static/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class UserService {
     public boolean addUserToDataBase(User user){
         return repo.register(user);
     }
-    public boolean login(User user){
+    public User login(User user){
         return repo.loginTry(user);
     }
 }

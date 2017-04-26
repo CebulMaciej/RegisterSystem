@@ -50,14 +50,14 @@ public class UserRepository {
         else
             return false;
     }
-    public boolean loginTry(User user){
+    public User loginTry(User user){
         List<User> users = this.findAll();
         for (User us : users){
            if(us.getLogin().equals(user.getLogin())&&us.getPassword().equals(user.getPassword())){
-               return true;
+               return us;
            }
         }
-        return false;
+        return null;
     }
     private boolean registerTry(String login){
         List<User> users = this.findAll();

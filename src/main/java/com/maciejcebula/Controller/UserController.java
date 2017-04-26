@@ -33,9 +33,10 @@ public class UserController {
     }
     @PostMapping(value = "/login.try")
     public String loginTry(Model model, User user){
-        if(userService.login(user)){
-            model.addAttribute("name",user.getLogin());
-            return "redirect:/home_zal";
+        User us=userService.login(user);
+        if(us!=null){
+            model.addAttribute("name",us.getFirstName()+ " "+ us.getLastName());
+            return "redirect:/";
         }
         else
         {
