@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.html">System ankietyzacji PRz</a>
+            <a class="navbar-brand" href="redirect:/../home.html">System ankietyzacji PRz</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,7 +35,7 @@
                     <a href="#">Kontakt</a>
                 </li>
                 <li>
-                    <a th:text="'Zalogowany jako : ' + ${user.login}">Niezalogowany</a>
+                    <a><span th:text="${session.name}">Niezalogowany </span></a>
                 </li>
             </ul>
         </div>
