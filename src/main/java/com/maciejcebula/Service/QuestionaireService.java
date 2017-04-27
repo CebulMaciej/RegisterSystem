@@ -3,12 +3,14 @@ package com.maciejcebula.Service;
 import com.maciejcebula.Entity.Questionaire;
 import com.maciejcebula.Model.QuestionaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Maciej Cebula on 27.04.2017.
  */
+@Service
 public class QuestionaireService {
     QuestionaireRepository questionaireRepository;
 
@@ -23,5 +25,8 @@ public class QuestionaireService {
 
     public void addNewQuestionaire(Questionaire quest){
         questionaireRepository.addNewAnkieta(quest);
+    }
+    public List<Questionaire> findAllUserQuestionaries(int id){
+        return this.questionaireRepository.findUsersAllQuestionaries(id);
     }
 }

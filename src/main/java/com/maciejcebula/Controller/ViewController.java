@@ -1,5 +1,6 @@
 package com.maciejcebula.Controller;
 
+import com.maciejcebula.Entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 @RequestMapping("/")
-@SessionAttributes("name")
+@SessionAttributes({"name","user"})
 public class ViewController {
 
     @GetMapping
@@ -36,5 +37,4 @@ public class ViewController {
     public String zalogowano(Model model){
         return "home_zal";
     }
-
 }

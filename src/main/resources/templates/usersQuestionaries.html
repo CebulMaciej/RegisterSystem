@@ -51,6 +51,7 @@
         <div class="content col-lg-8 col-xs-12">
             <table>
                 <tr th:each="quest : ${quests}">
+                    <td th:text="${quest.ida}"></td>
                     <td th:text="${quest.Nazwa}"></td>
                 </tr>
             </table>

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 @RequestMapping("/user")
-@SessionAttributes("name")
+@SessionAttributes({"name","user"})
 public class UserController {
 
     private UserService userService;
@@ -36,6 +36,7 @@ public class UserController {
         User us=userService.login(user);
         if(us!=null){
             model.addAttribute("name",us.getFirstName()+ " "+ us.getLastName());
+            model.addAttribute("user",us);
             return "redirect:/";
         }
         else

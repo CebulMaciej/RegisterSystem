@@ -3,7 +3,7 @@ package com.maciejcebula.Entity;
 /**
  * Created by Maciej Cebula on 27.04.2017.
  */
-public class Ankieta {
+public class Questionaire {
     private int ida;
     private String Nazwa;
     private int id_;
@@ -35,14 +35,14 @@ public class Ankieta {
         Nazwa = nazwa;
     }
 
-    public Ankieta(String nazwa, int id_) {
+    public Questionaire(String nazwa, int id_) {
 
         this.ida = ida;
         Nazwa = nazwa;
         this.id_ = id_;
     }
 
-    public Ankieta() {
+    public Questionaire() {
 
     }
 }

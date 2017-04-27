@@ -1,8 +1,6 @@
 package com.maciejcebula.Model;
 
-import com.maciejcebula.Entity.Ankieta;
-import com.maciejcebula.Entity.User;
-import org.springframework.data.repository.CrudRepository;
+import com.maciejcebula.Entity.Questionaire;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -15,10 +13,11 @@ import java.util.List;
 /**
  * Created by Maciej Cebula on 27.04.2017.
  */
-public class AnkietaRepository {
+@Repository
+public class QuestionaireRepository {
         private JdbcTemplate jdbc;
 
-        public AnkietaRepository() {
+        public QuestionaireRepository() {
             DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
             driverManagerDataSource.setDriverClassName("org.postgresql.Driver");
             driverManagerDataSource.setUrl("jdbc:postgresql://localhost:5432/mydb");
@@ -27,21 +26,33 @@ public class AnkietaRepository {
             this.jdbc = new JdbcTemplate(driverManagerDataSource);
         }
 
-        public List<Ankieta> findAll() {
-            return jdbc.query("select ida, Nazwa, id_ from questionaire", new RowMapper<Ankieta>() {
-                public Ankieta mapRow(ResultSet rs, int rowNum)
+        public List<Questionaire> findAll() {
+            return jdbc.query("select ida, name, id_ from questionaire", new RowMapper<Questionaire>() {
+                public Questionaire mapRow(ResultSet rs, int rowNum)
                         throws SQLException {
-                    Ankieta ankieta = new Ankieta();
-                    ankieta.setIda(rs.getInt(1));
-                    ankieta.setNazwa(rs.getString(2));
-                    ankieta.setId_(rs.getInt(3));
-                    return ankieta;
+                    Questionaire questionaire = new Questionaire();
+                    questionaire.setIda(rs.getInt(1));
+                    questionaire.setNazwa(rs.getString(2));
+                    questionaire.setId_(rs.getInt(3));
+                    return questionaire;
                 }
             });
         }
 
-        public void addNewAnkieta(Ankieta ankieta) {
-            jdbc.update("INSERT into questionaire(Nazwa, id_) values (?,?)"
-                        , ankieta.getNazwa(),ankieta.getId_());
+        public void addNewAnkieta(Questionaire questionaire) {
+            jdbc.update("INSERT into questionaire(name, id_) values (?,?)"
+                        , questionaire.getNazwa(), questionaire.getId_());
+        }
+        public List<Questionaire> findUsersAllQuestionaries(int id){
+            return jdbc.query("select ida,name from questionaire,users where questionaire.id_=users.id_ and users.id_="+Integer.toString(id)+";", new RowMapper<Questionaire>() {
+                public Questionaire mapRow(ResultSet rs, int rowNum)
+                        throws SQLException {
+                    Questionaire questionaire = new Questionaire();
+                    questionaire.setIda(rs.getInt(1));
+                    questionaire.setNazwa(rs.getString(2));
+                    questionaire.setId_(id);
+                    return questionaire;
+                }
+            });
         }
     }
