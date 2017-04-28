@@ -1,5 +1,6 @@
 package com.maciejcebula.Controller;
 
+import com.maciejcebula.Entity.Questionaire;
 import com.maciejcebula.Entity.User;
 import com.maciejcebula.Service.QuestionaireService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,15 @@ public class QuestionaireController {
     public String findAllQuestionaires(Model model,@SessionAttribute("user") User user){
         model.addAttribute("quests",questionaireService.findAllUserQuestionaries(user.getId()));
         return "usersQuestionaries";
+    }
+    @GetMapping(value ="addQuestionaries")
+    public String addingQuestionaires(Model model,@SessionAttribute("user") User user){
+        return "addQuestionaries";
+    }
+    @PostMapping(value = "usersQuestionaries/add")
+    public String addNewQuestionaries(Model model, Questionaire quest,@SessionAttribute("user")User user){
+        quest.setId_(user.getId());
+        this.questionaireService.addNewQuestionaire(quest);
+        return "redirect:/usersQuestionaries";
     }
 }
