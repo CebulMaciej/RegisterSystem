@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Service
 public class QuestionaireService {
-    QuestionaireRepository questionaireRepository;
+    private QuestionaireRepository questionaireRepository;
 
     @Autowired
     public QuestionaireService(QuestionaireRepository ankieta){
@@ -28,5 +28,8 @@ public class QuestionaireService {
     }
     public List<Questionaire> findAllUserQuestionaries(int id){
         return this.questionaireRepository.findUsersAllQuestionaries(id);
+    }
+    public void deleteQuestionaireByID(int id){
+        this.questionaireRepository.deleteQuestionaire(id);
     }
 }

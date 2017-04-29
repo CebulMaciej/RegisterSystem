@@ -55,4 +55,7 @@ public class QuestionaireRepository {
                 }
             });
         }
+        public void deleteQuestionaire(int id){
+            jdbc.update("Delete from questionaire where questionaire.ida=" + Integer.toString(id));
+        }
     }
