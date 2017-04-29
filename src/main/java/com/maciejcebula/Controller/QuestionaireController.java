@@ -53,4 +53,15 @@ public class QuestionaireController {
         }
         return "redirect:/usersQuestionaries";
     }
+    @GetMapping(value = "Questionaries/edit/{id}")
+    public String editQuestionary(Model model,@PathVariable int id,@SessionAttribute("user")User user){
+        List<Questionaire> lista = this.questionaireService.findAllUserQuestionaries(user.getId());
+        for(Questionaire quest : lista){
+            if(quest.getIda()==id && quest.getId_()==user.getId()) {
+                model.addAttribute("quest",quest);
+                return "editQuestionary";
+            }
+        }
+        return "unlogged";
+    }
 }
