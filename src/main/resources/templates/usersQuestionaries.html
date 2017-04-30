@@ -20,19 +20,32 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">System ankietyzacji PRz</a>
+            <a class="navbar-brand" th:href="@{~/home}">System ankietyzacji PRz</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div th:if="${session.name} != null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="addQuestionaries">Utwórz ankietę</a>
+                    <a href="#">Kontakt</a>
+                </li>
+                <li>
+                    <a th:href="@{usersQuestionaries} ">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span></a>
+                </li>
+            </ul>
+        </div>
+        <div th:if="${session.name} == null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a th:href="@{~/login}">Zaloguj</a>
+                </li>
+                <li>
+                    <a th:href="@{~/register}">Zarejestruj</a>
                 </li>
                 <li>
                     <a href="#">Kontakt</a>
                 </li>
                 <li>
-                    <a><span th:text="${session.name}">Niezalogowany </span></a>
+                    <a>Niezalogowany</a>
                 </li>
             </ul>
         </div>
