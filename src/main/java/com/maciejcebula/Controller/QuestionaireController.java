@@ -26,34 +26,34 @@ public class QuestionaireController {
         this.questionaireService=question;
     }
 
-    @GetMapping(value ="usersQuestionaries")
+    @GetMapping(value ="userQuestionaries")
     public String findAllQuestionaires(Model model,@SessionAttribute("user") User user){
         model.addAttribute("quests",questionaireService.findAllUserQuestionaries(user.getId()));
-        return "usersQuestionaries";
+        return "userQuestionaries";
     }
-    @GetMapping(value ="addQuestionaries")
+    @GetMapping(value ="userQuestionaries/add")
     public String addingQuestionaires(Model model,@SessionAttribute("user") User user){
         return "addQuestionaries";
 
     }
-    @PostMapping(value = "usersQuestionaries/add")
+    @PostMapping(value = "userQuestionaries/add")
     public String addNewQuestionaries(Model model, Questionaire quest,@SessionAttribute("user")User user){
         quest.setId_(user.getId());
         this.questionaireService.addNewQuestionaire(quest);
-        return "redirect:/usersQuestionaries";
+        return "redirect:/userQuestionaries";
     }
-    @PostMapping(value = "Questionaries/delete/{id}")
+    @PostMapping(value = "userQuestionaries/delete/{id}")
     public String deleteQuestionaries(Model model,@PathVariable int id,@SessionAttribute("user") User user){
         List<Questionaire> lista = this.questionaireService.findAllUserQuestionaries(user.getId());
         for(Questionaire quest : lista){
             if(quest.getIda()==id && quest.getId_()==user.getId()) {
                 questionaireService.deleteQuestionaireByID(id);
-                return "redirect:/usersQuestionaries";
+                return "redirect:/userQuestionaries";
             }
         }
-        return "redirect:/usersQuestionaries";
+        return "redirect:/userQuestionaries";
     }
-    @GetMapping(value = "Questionaries/edit/{id}")
+    @GetMapping(value = "userQuestionaries/edit/{id}")
     public String editQuestionary(Model model,@PathVariable int id,@SessionAttribute("user")User user){
         List<Questionaire> lista = this.questionaireService.findAllUserQuestionaries(user.getId());
         for(Questionaire quest : lista){

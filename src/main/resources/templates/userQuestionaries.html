@@ -82,7 +82,7 @@
                         <td th:text="${quest.ida}"></td>
                         <td th:text="${quest.Nazwa}"></td>
                         <td>
-                            <form method="get" th:action="@{Questionaries/edit/}+${quest.ida}" class="horizontal">
+                            <form method="get" th:action="@{userQuestionaries/edit/}+${quest.ida}" class="horizontal">
                             <!--BUTTON-->
                                 <div class="form-group">
                                     <div >
@@ -92,7 +92,7 @@
                             </form>
                         </td>
                         <td>
-                            <form method="post" th:action="@{Questionaries/delete/}+${quest.ida}" class="horizontal">
+                            <form method="post" th:action="@{userQuestionaries/delete/}+${quest.ida}" class="horizontal">
                                 <!--BUTTON-->
                                 <div class="form-group">
                                     <div >
