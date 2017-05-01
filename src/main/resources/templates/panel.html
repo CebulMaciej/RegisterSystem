@@ -34,7 +34,7 @@
                 <li class="dropdown">
                     <a th:href="@{usersQuestionaries} " class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a th:href="@{~/panel}">Panel użytkownika</a></li>
+                        <li><a th:href="@{~/user/panel}">Panel użytkownika</a></li>
                         <li><a th:href="@{~/userQuestionaries/add}">Stwórz ankietę</a></li>
                         <li><a th:href="@{~/userQuestionaries}">Pokaż ankiety</a></li>
                         <li><a href="#">narazie nic</a></li>
@@ -78,7 +78,7 @@
 <div class="col-md-4">
   <img class="img-responsive img-center" src="../static/add.png" th:src="@{/add.png}"/>
   <h2>Dodaj ankietę</h2>
-  <p>Pod tym odnośnikiem znajdziesz stronę która umożliwi Ci dodanie nowej ankiety.</p>
+  <p>Pod tym odnośnikiem znajdziesz stronę, która umożliwi Ci dodanie nowej ankiety.</p>
   <p><a class="btn btn-primary btn-lg" href="#" th:href="@{~/userQuestionaries/add}" role="button">Dodaj sobie coś &raquo;</a></p>
 </div>
 <div class="col-md-4">
@@ -90,7 +90,7 @@
 <div class="col-md-4">
   <img class="img-responsive img-center" src="../static/edit.png" th:src="@{/edit.png}"/>
   <h2>Edytuj ankiety</h2>
-  <p>Zostaniesz przekierowany do miejsca w którym mozesz naprawić swoje błędy, korzystaj z niego mądrze i ucz się na błędach.</p>
+  <p>Zostaniesz przekierowany do miejsca, w którym mozesz naprawić swoje błędy, korzystaj z niego mądrze i ucz się na błędach.</p>
   <p><a class="btn btn-primary btn-lg" href="#" th:href="@{~/userQuestionaries}" role="button">Napraw błędy &raquo;</a></p>
 </div>
 </div>

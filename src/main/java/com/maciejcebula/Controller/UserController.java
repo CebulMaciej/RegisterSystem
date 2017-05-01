@@ -37,7 +37,7 @@ public class UserController {
             return "redirect:/badhome";
         }
     }
-    @PostMapping(value = "/login.try")
+    @PostMapping(value = "/login")
     public String loginTry(Model model, User user){
         User us=userService.login(user);
         if(us!=null){
