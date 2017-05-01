@@ -28,7 +28,7 @@
                         <a href="#">Kontakt</a>
                     </li>
 					<li>
-						<a th:href="@{usersQuestionaries} ">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span></a>
+						<a th:href="@{~/usersQuestionaries} ">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span></a>
 					</li>
                     <li>
                         <a th:href="@{~/user/logout}"> Wyloguj</a>
