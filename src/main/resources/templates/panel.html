@@ -32,14 +32,14 @@
                     <a th:href="@{~/user/logout}"> Wyloguj</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Akcje <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Akcje <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -69,37 +69,37 @@
     </div>
 </nav>
 <!-- /.navbar-end -->
-<div class="centered">
-    <div class="container">
-        <div class="col-lg-4 col-xs-12">
-            <h1 class="text-center main-title">System ankietyzacji PRz</h1>
-        </div>
-        <div class="content col-lg-8 col-xs-12">
-            <form class="login-group" method="post" action="/usersQuestionaries/add">
-                <div class="login-group-container">
-				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="text" id="Nazwa" name="Nazwa" ></input>
-					<label class="input__label input__label--jiro" for="Nazwa">
-						<span class="input__label-content input__label-content--jiro">Nazwa Ankiety</span>
-					</label>
-                </span>
-                    <span class="input input--jiro">
-					    <input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Stwórz"></input>
-                    </span>
-                </div>
-            </form>
-            <div class="below-form-options">
-                <a href="#">Zapomniałeś hasła?</a>
-                <a href="#">Nie posiadasz jeszcze konta?</a>
-            </div>
-        </div>
-    </div>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Panel użytkownika <small>systemu ankietyzacji PRz</small></h1>      
+  </div>     
 </div>
-<footer class="footer-main">
-    <div class="container">
-        <p>&copy; Grupa L05 - PRz 2017</p>
-    </div>
-</footer>
+
+
+<div class="container">
+<!-- Example row of columns -->
+<div class="row">
+<div class="col-md-4">
+  <img class="img-responsive img-center" src="../static/add.png" th:src="@{add.png}"/>
+  <h2>Dodaj ankietę</h2>
+  <p>Pod tym odnośnikiem znajdziesz stronę która umożliwi Ci dodanie nowej ankiety.</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Dodaj sobie coś &raquo;</a></p>
+</div>
+<div class="col-md-4">
+  <img class="img-responsive img-center" src="../static/all.png" th:src="@{all.png}"/>
+  <h2>Przegladaj swoje ankiety</h2>
+  <p>W tym miejscu, możesz przejrzeć swoje dotychczas utworzone ankiety. </p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Poogladaj co zrobiłeś &raquo;</a></p>
+</div>
+<div class="col-md-4">
+  <img class="img-responsive img-center" src="../static/edit.png" th:src="@{edit.png}"/>
+  <h2>Edytuj ankiety</h2>
+  <p>Zostaniesz przekierowany do miejsca w którym mozesz naprawić swoje błędy, korzystaj z niego madrze i ucz się na błędach.</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Napraw błędy &raquo;</a></p>
+</div>
+</div>
+
 <script>
     (function() {
         // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
