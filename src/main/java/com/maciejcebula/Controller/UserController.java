@@ -43,7 +43,7 @@ public class UserController {
         if(us!=null){
             model.addAttribute("name",us.getFirstName()+ " "+ us.getLastName());
             model.addAttribute("user",us);
-            return "redirect:/";
+            return "redirect:/user/panel";
         }
         else
         {
@@ -59,6 +59,10 @@ public class UserController {
         request.removeAttribute("user", WebRequest.SCOPE_SESSION);
         request.removeAttribute("name", WebRequest.SCOPE_SESSION);
         return "redirect:/";
+    }
+    @GetMapping(value = "/panel")
+    public String panel(Model Model){
+        return "panel";
     }
 
 }
