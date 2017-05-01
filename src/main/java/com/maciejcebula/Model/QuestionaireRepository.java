@@ -27,7 +27,7 @@ public class QuestionaireRepository {
         }
 
         public List<Questionaire> findAll() {
-            return jdbc.query("select ida, name, id_ from questionaire", new RowMapper<Questionaire>() {
+            return jdbc.query("select ida, name, id_ from questionaries", new RowMapper<Questionaire>() {
                 public Questionaire mapRow(ResultSet rs, int rowNum)
                         throws SQLException {
                     Questionaire questionaire = new Questionaire();
@@ -40,11 +40,11 @@ public class QuestionaireRepository {
         }
 
         public void addNewAnkieta(Questionaire questionaire) {
-            jdbc.update("INSERT into questionaire(name, id_) values (?,?)"
+            jdbc.update("INSERT into questionaries(name, id_) values (?,?)"
                         , questionaire.getNazwa(), questionaire.getId_());
         }
         public List<Questionaire> findUsersAllQuestionaries(int id){
-            return jdbc.query("select ida,name from questionaire,users where questionaire.id_=users.id_ and users.id_="+Integer.toString(id)+";", new RowMapper<Questionaire>() {
+            return jdbc.query("select ida,name from questionaries,users where questionaries.id_=users.id_ and users.id_="+Integer.toString(id)+";", new RowMapper<Questionaire>() {
                 public Questionaire mapRow(ResultSet rs, int rowNum)
                         throws SQLException {
                     Questionaire questionaire = new Questionaire();
@@ -56,6 +56,6 @@ public class QuestionaireRepository {
             });
         }
         public void deleteQuestionaire(int id){
-            jdbc.update("Delete from questionaire where questionaire.ida=" + Integer.toString(id));
+            jdbc.update("Delete from questionaries where questionaries.ida=" + Integer.toString(id));
         }
     }
