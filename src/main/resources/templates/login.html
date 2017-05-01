@@ -10,117 +10,119 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" th:href="@{~/home}">System ankietyzacji PRz</a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div th:if="${session.name} != null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="#">Kontakt</a>
-				</li>
-				<li>
-					<a th:href="@{usersQuestionaries} ">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span></a>
-				</li>
-			</ul>
-		</div>
-		<div th:if="${session.name} == null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-			<ul class="nav navbar-nav">
-				<li>
-					<a th:href="@{~/login}">Zaloguj</a>
-				</li>
-				<li>
-					<a th:href="@{~/register}">Zarejestruj</a>
-				</li>
-				<li>
-					<a href="#">Kontakt</a>
-				</li>
-				<li>
-					<a>Niezalogowany</a>
-				</li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container -->
-</nav>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" th:href="@{~/home}">System ankietyzacji PRz</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div th:if="${session.name} != null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="#">Kontakt</a>
+					</li>
+					<li>
+						<a th:href="@{usersQuestionaries} ">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span></a>
+					</li>
+				</ul>
+			</div>
+			<div th:if="${session.name} == null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+				<ul class="nav navbar-nav">
+					<li>
+						<a th:href="@{~/login}">Zaloguj</a>
+					</li>
+					<li>
+						<a th:href="@{~/register}">Zarejestruj</a>
+					</li>
+					<li>
+						<a href="#">Kontakt</a>
+					</li>
+					<li>
+						<a>Niezalogowany</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+	</nav>
 	<div class="centered">
-	<div class="container">
-	 	<div class="col-lg-4 col-xs-12">
-	 		<h1 class="text-center main-title">System ankietyzacji PRz</h1>
-	 	</div>
-		<div class="content col-lg-8 col-xs-12">
-			<form class="login-group" method="post" action="/user/login.try">
-			<div class="login-group-container">	
-				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="text" id="login" name="login" ></input>
-					<label class="input__label input__label--jiro" for="login">
-						<span class="input__label-content input__label-content--jiro">Login</span>
-					</label>
-				</span>
+		<div class="container">
+			<div class="col-lg-4 col-xs-12">
+				<h1 class="text-center main-title">System ankietyzacji PRz</h1>
+			</div>
+			<div class="content col-lg-8 col-xs-12">
+				<form class="login-group" method="post" action="/user/login.try">
+					<div class="login-group-container">
+						<span class="input input--jiro">
+							<input class="input__field input__field--jiro" type="text" id="login" name="login" ></input>
+							<label class="input__label input__label--jiro" for="login">
+								<span class="input__label-content input__label-content--jiro">Login</span>
+							</label>
+						</span>
 
-				<span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="password" id="password" name="password" ></input>
-					<label class="input__label input__label--jiro" for="password">
-						<span class="input__label-content input__label-content--jiro">Hasło</span>
-					</label>
-				</span>
+						<span class="input input--jiro">
+							<input class="input__field input__field--jiro" type="password" id="password" name="password" ></input>
+							<label class="input__label input__label--jiro" for="password">
+								<span class="input__label-content input__label-content--jiro">Hasło</span>
+							</label>
+						</span>
 
-				<span class="input input--jiro">
-					<input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Zaloguj"></input>
-				</span>
+						<span class="input input--jiro">
+							<input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Zaloguj"></input>
+						</span>
+					</div>
+				</form>
+				<div class="below-form-options">
+					<a href="#">Zapomniałeś hasła?</a>
+					<a href="#">Nie posiadasz jeszcze konta?</a>
 				</div>
-			</form>
-			<div class="below-form-options">
-				<a href="#">Zapomniałeś hasła?</a>
-				<a href="#">Nie posiadasz jeszcze konta?</a>
 			</div>
 		</div>
 	</div>
-	</div>
+	<footer class="footer-main">
+		<div class="container">
+			<p>&copy; Grupa L05 - PRz 2017</p>
+		</div>
+	</footer>
 	<script>
-		(function() {
-				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-				if (!String.prototype.trim) {
-					(function() {
-						// Make sure we trim BOM and NBSP
-						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-						String.prototype.trim = function() {
-							return this.replace(rtrim, '');
-						};
-					})();
-				}
-
-				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
-					// in case the input is already filled..
-					if( inputEl.value.trim() !== '' ) {
-						classie.add( inputEl.parentNode, 'input--filled' );
-					}
-
-					// events:
-					inputEl.addEventListener( 'focus', onInputFocus );
-					inputEl.addEventListener( 'blur', onInputBlur );
-				} );
-
-				function onInputFocus( ev ) {
-					classie.add( ev.target.parentNode, 'input--filled' );
-				}
-
-				function onInputBlur( ev ) {
-					if( ev.target.value.trim() === '' ) {
-						classie.remove( ev.target.parentNode, 'input--filled' );
-					}
-				}
+	(function() {
+			// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+			if (!String.prototype.trim) {
+			(function() {
+				// Make sure we trim BOM and NBSP
+				var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+				String.prototype.trim = function() {
+				return this.replace(rtrim, '');
+				};
 			})();
+	}
+
+	[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+	// in case the input is already filled..
+	if( inputEl.value.trim() !== '' ) {
+	classie.add( inputEl.parentNode, 'input--filled' );
+	}
+
+	// events:
+	inputEl.addEventListener( 'focus', onInputFocus );
+	inputEl.addEventListener( 'blur', onInputBlur );
+	} );
+
+	function onInputFocus( ev ) {
+	classie.add( ev.target.parentNode, 'input--filled' );
+	}
+
+	function onInputBlur( ev ) {
+	if( ev.target.value.trim() === '' ) {
+	classie.remove( ev.target.parentNode, 'input--filled' );
+	}
+	}
+	})();
 	</script>
 </body>
 </html>

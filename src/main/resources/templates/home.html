@@ -11,7 +11,6 @@
 </head>
 <body>
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -67,19 +66,17 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
     </nav>
-	<div class="container">
-		<div class="jumbotron">
-		    <h1 class="text-center">System Ankietyzacji</h1>      
-		    <p>Wspanialy system ankietyzacji stworzony w technologii Java a nie w PEHAPE!</p>
-			<a th:href="@{~/login}"><button class="btn btn-primary btn-lg">Zaloguj</button></a>
-			<a th:href="@{~/register}"><button class="btn btn-info btn-lg">Zarejestruj</button></a>
-		  </div>
-	</div>
 
-	<div class="container-fluid">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>System Ankietyzacji</h1>
+				<p>Wspanialy system ankietyzacji stworzony w technologii Java a nie w PEHAPE!</p>
+				<a th:href="@{~/login}"><button class="btn btn-primary btn-lg">Zaloguj</button></a>
+				<a th:href="@{~/register}"><button class="btn btn-info btn-lg">Zarejestruj</button></a>
+			</div>
+		</div>
+
 		<div class="container">
 			<h1 class="heading-title">Zobacz co potrafi nasz serwis:</h1>
 			<div class="col-md-6">
@@ -104,16 +101,13 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<img class="img-responsive" src="../static/designer.jpg" th:src="@{designer.jpg}"/>
+				<img class="img-responsive" src="../static/prz.png" th:src="@{prz.png}"/>
 			</div>
 		</div>
-	</div>
 	
 	<footer class="footer-main">
-		<div class="container-fluid">
-			<div class="container">
-				<h1 class="text-center">Do zobaczenia wkrótce!</h1>
-			</div>
+		<div class="container">
+			<p>&copy; Grupa L05 - PRz 2017</p>
 		</div>
 	</footer>
 	<script>
