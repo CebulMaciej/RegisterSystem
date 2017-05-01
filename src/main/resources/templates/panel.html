@@ -31,20 +31,18 @@
                 <li>
                     <a th:href="@{~/user/logout}"> Wyloguj</a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Akcje <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a th:href="@{usersQuestionaries} ">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span></a>
+
+                <li class="dropdown">
+                    <a th:href="@{usersQuestionaries} " class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowany jako : <span th:text="${session.name} ?: Niezalogowany ">Niezalogowany</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -76,29 +74,28 @@
   </div>     
 </div>
 
-
 <div class="container">
 <!-- Example row of columns -->
-<div class="row">
-<div class="col-md-4">
-  <img class="img-responsive img-center" src="../static/add.png" th:src="@{add.png}"/>
-  <h2>Dodaj ankietę</h2>
-  <p>Pod tym odnośnikiem znajdziesz stronę która umożliwi Ci dodanie nowej ankiety.</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Dodaj sobie coś &raquo;</a></p>
-</div>
-<div class="col-md-4">
-  <img class="img-responsive img-center" src="../static/all.png" th:src="@{all.png}"/>
-  <h2>Przegladaj swoje ankiety</h2>
-  <p>W tym miejscu, możesz przejrzeć swoje dotychczas utworzone ankiety. </p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Poogladaj co zrobiłeś &raquo;</a></p>
-</div>
-<div class="col-md-4">
-  <img class="img-responsive img-center" src="../static/edit.png" th:src="@{edit.png}"/>
-  <h2>Edytuj ankiety</h2>
-  <p>Zostaniesz przekierowany do miejsca w którym mozesz naprawić swoje błędy, korzystaj z niego madrze i ucz się na błędach.</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Napraw błędy &raquo;</a></p>
-</div>
-</div>
+    <div class="row">
+        <div class="col-md-4">
+          <img class="img-responsive img-center" src="../static/add.png" th:src="@{/add.png}"/>
+          <h2>Dodaj ankietę</h2>
+          <p>Pod tym odnośnikiem znajdziesz stronę która umożliwi Ci dodanie nowej ankiety.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Dodaj sobie coś &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <img class="img-responsive img-center" src="../static/all.png" th:src="@{/all.png}"/>
+          <h2>Przegladaj swoje ankiety</h2>
+          <p>W tym miejscu, możesz przejrzeć swoje dotychczas utworzone ankiety. </p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Poogladaj co zrobiłeś &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <img class="img-responsive img-center" src="../static/edit.png" th:src="@{/edit.png}"/>
+          <h2>Edytuj ankiety</h2>
+          <p>Zostaniesz przekierowany do miejsca w którym mozesz naprawić swoje błędy, korzystaj z niego madrze i ucz się na błędach.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Napraw błędy &raquo;</a></p>
+        </div>
+    </div>
 </div>
 
 <script>
