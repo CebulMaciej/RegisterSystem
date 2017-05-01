@@ -68,4 +68,16 @@ public class UserRepository {
         }
         return true;
     }
+    public void updateUser(User user){
+        /*this.jdbc.update("Update Users SET password="
+                +user.getPassword()+","
+                +"firstName="+user.getFirstName()+","
+                +"lastName=" + user.getLastName()+ ","
+                +"phoneNumber=" + user.getPhoneNumber()+","
+                +"emailAddress=" + user.getEmailAddress()+ " "
+                +"Where Users.id_="+user.getId());
+                */
+        this.jdbc.update("update Users set password=?, firstName=?, lastName=?, phoneNumber=?, emailAddress=? where Users.id_=?",
+                user.getPassword(),user.getFirstName(),user.getLastName(),user.getPhoneNumber(),user.getEmailAddress(),user.getId());
+    }
 }

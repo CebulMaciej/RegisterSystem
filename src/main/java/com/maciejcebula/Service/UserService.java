@@ -27,4 +27,7 @@ public class UserService {
     public User login(User user){
         return repo.loginTry(user);
     }
+    public void updateUser(User user){
+        this.repo.updateUser(user);
+    }
 }

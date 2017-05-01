@@ -64,5 +64,14 @@ public class UserController {
     public String panel(Model Model){
         return "panel";
     }
+    @GetMapping(value = "/update")
+    public String getUpdate(Model model){
+        return "editUser";
+    }
+    @PostMapping(value ="/update")
+    public String update(Model model,@SessionAttribute("user")User user){
+        this.userService.updateUser(user);
+        return "redirect:/user/panel";
+    }
 
 }
