@@ -29,8 +29,12 @@ public class UserController {
         this.userService=userService;
     }
     @PostMapping(value="/register.try")
-    public String registerTry(Model model, User user){
-        if(userService.addUserToDataBase(user)){
+    public String registerTry(Model model, User register){
+        if(model.containsAttribute("user")){
+            model.asMap().remove("user");
+        }
+        if(userService.addUserToDataBase(register)){
+
             return "redirect:/";
         }
         else{
@@ -51,7 +55,7 @@ public class UserController {
         }
     }
     @GetMapping(value = "/logout")
-    public String page4(@ModelAttribute User user, WebRequest request, SessionStatus status) {
+    public String logout(@ModelAttribute User user, WebRequest request, SessionStatus status) {
         /**
          * store User ...
          */
