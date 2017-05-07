@@ -24,7 +24,7 @@
                 <a class="navbar-brand" th:href="@{~/home}">System ankietyzacji PRz</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div th:if="${session.user} != null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div th:if="${session.User} != null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="#">Kontakt</a>
@@ -46,7 +46,7 @@
                     </li>
                 </ul>
             </div>
-            <div th:if="${session.user} == null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <div th:if="${session.User} == null" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <li>
                         <a th:href="@{~/login}">Zaloguj</a>

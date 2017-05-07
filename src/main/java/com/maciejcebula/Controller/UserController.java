@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/user")
-@SessionAttributes({"name","user"})
+@SessionAttributes({"name","User"})
 public class UserController {
 
     private UserService userService;
@@ -46,14 +46,14 @@ public class UserController {
         User us=userService.login(user);
         if(us!=null){
             model.addAttribute("name",us.getFirstName()+ " "+ us.getLastName());
-            model.addAttribute("user",us);
+            model.addAttribute("User",us);
             return "redirect:/user/panel";
         }
         else
         {
-            if(model.containsAttribute("user")){
+            /*if(model.containsAttribute("user")){
                 model.asMap().remove("user");
-            }
+            }*/
             return "redirect:/homebad";
         }
     }
@@ -76,7 +76,7 @@ public class UserController {
         return "editUser";
     }
     @PostMapping(value ="/update")
-    public String update(Model model,@SessionAttribute("user")User user){
+    public String update(Model model,@SessionAttribute("User")User user){
         this.userService.updateUser(user);
         return "redirect:/user/panel";
     }

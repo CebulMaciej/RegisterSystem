@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Maciej Cebula on 27.04.2017.
  */
 @RequestMapping("/userQuestionaries")
-@SessionAttributes({"name","user"})
+@SessionAttributes({"name","User"})
 @Controller
 public class QuestionaireController {
 
@@ -27,23 +27,23 @@ public class QuestionaireController {
     }
 
     @GetMapping()
-    public String findAllQuestionaires(Model model,@SessionAttribute("user") User user){
+    public String findAllQuestionaires(Model model,@SessionAttribute("User") User user){
         model.addAttribute("quests",questionaireService.findAllUserQuestionaries(user.getId()));
         return "userQuestionaries";
     }
     @GetMapping(value ="/add")
-    public String addingQuestionaires(Model model,@SessionAttribute("user") User user){
+    public String addingQuestionaires(Model model,@SessionAttribute("User") User user){
         return "addQuestionaries";
 
     }
     @PostMapping(value = "/add")
-    public String addNewQuestionaries(Model model, Questionaire quest,@SessionAttribute("user")User user){
+    public String addNewQuestionaries(Model model, Questionaire quest,@SessionAttribute("User")User user){
         quest.setId_(user.getId());
         this.questionaireService.addNewQuestionaire(quest);
         return "redirect:/userQuestionaries";
     }
     @PostMapping(value = "/delete/{id}")
-    public String deleteQuestionaries(Model model,@PathVariable int id,@SessionAttribute("user") User user){
+    public String deleteQuestionaries(Model model,@PathVariable int id,@SessionAttribute("User") User user){
         List<Questionaire> lista = this.questionaireService.findAllUserQuestionaries(user.getId());
         for(Questionaire quest : lista){
             if(quest.getIda()==id && quest.getId_()==user.getId()) {
@@ -54,7 +54,7 @@ public class QuestionaireController {
         return "redirect:/userQuestionaries";
     }
     @GetMapping(value = "edit/{id}")
-    public String editQuestionary(Model model,@PathVariable int id,@SessionAttribute("user")User user){
+    public String editQuestionary(Model model,@PathVariable int id,@SessionAttribute("User")User user){
         List<Questionaire> lista = this.questionaireService.findAllUserQuestionaries(user.getId());
         for(Questionaire quest : lista){
             if(quest.getIda()==id && quest.getId_()==user.getId()) {

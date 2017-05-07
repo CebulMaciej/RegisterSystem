@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 @RequestMapping("/")
-@SessionAttributes({"name","user"})
+@SessionAttributes({"name","User"})
 public class ViewController {
     @GetMapping
     public String home(Model model){
