@@ -51,6 +51,9 @@ public class UserController {
         }
         else
         {
+            if(model.containsAttribute("user")){
+                model.asMap().remove("user");
+            }
             return "redirect:/homebad";
         }
     }
