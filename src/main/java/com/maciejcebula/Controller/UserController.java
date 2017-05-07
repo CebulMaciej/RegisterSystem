@@ -30,9 +30,9 @@ public class UserController {
     }
     @PostMapping(value="/register.try")
     public String registerTry(Model model, User register){
-        if(model.containsAttribute("user")){
+        /*if(model.containsAttribute("user")){
             model.asMap().remove("user");
-        }
+        }*/
         if(userService.addUserToDataBase(register)){
 
             return "redirect:/";
