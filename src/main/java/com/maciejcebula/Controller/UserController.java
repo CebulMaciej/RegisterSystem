@@ -68,8 +68,12 @@ public class UserController {
         return "redirect:/";
     }
     @GetMapping(value = "/panel")
-    public String panel(Model Model){
-        return "panel";
+    public String panel(Model model){
+        if(model.containsAttribute("User")) {
+            return "panel";
+        }
+        else
+            return "unlogged";
     }
     @GetMapping(value = "/update")
     public String getUpdate(Model model){
