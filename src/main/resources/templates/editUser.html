@@ -76,37 +76,37 @@
                 <form class="login-group" method="post" action="/user/update">
                     <div class="login-group-container">
                         <span class="input input--jiro">
-					<input class="input__field input__field--jiro" th:value="${session.User.firstName}" type="text" id="firstName" name="firstName" ></input>
+					<input class="input__field input__field--jiro" th:value="${session.User.firstName}" type="text" id="firstName" name="firstName" required="required"></input>
 					<label class="input__label input__label--jiro" for="firstName">
 						<span class="input__label-content input__label-content--jiro">Imię</span>
 					</label>
 				</span>
                         <span class="input input--jiro">
-					<input class="input__field input__field--jiro" th:value="${session.User.lastName}" type="text" id="lastName" name="lastName" ></input>
+					<input class="input__field input__field--jiro" th:value="${session.User.lastName}" type="text" id="lastName" name="lastName" required="required"></input>
 					<label class="input__label input__label--jiro" for="lastName">
 						<span class="input__label-content input__label-content--jiro">Nazwisko</span>
 					</label>
 				</span>
                         <span class="input input--jiro">
-					<input class="input__field input__field--jiro" th:value="${session.User.password}" type="password" id="password" name="password" ></input>
+					<input class="input__field input__field--jiro" th:value="${session.User.password}" type="password" id="password" name="password" required="required"></input>
 					<label class="input__label input__label--jiro" for="password">
 						<span class="input__label-content input__label-content--jiro">Hasło*</span>
 					</label>
 				</span>
                         <span class="input input--jiro">
-					<input class="input__field input__field--jiro" th:value="${session.User.password}" type="password" id="password2" name="password2" ></input>
+					<input class="input__field input__field--jiro" th:value="${session.User.password}" type="password" id="password2" name="password2" required="required"></input>
 					<label class="input__label input__label--jiro" for="password2">
 						<span class="input__label-content input__label-content--jiro">Powtórz hasło*</span>
 					</label>
 				</span>
                         <span class="input input--jiro">
-					<input class="input__field input__field--jiro" th:value="${session.User.phoneNumber}" type="text" id="phoneNumber" name="phoneNumber" ></input>
+					<input class="input__field input__field--jiro" th:value="${session.User.phoneNumber}" type="text" id="phoneNumber" name="phoneNumber" required="required"></input>
 					<label class="input__label input__label--jiro" for="phoneNumber">
 						<span class="input__label-content input__label-content--jiro">Telefon*</span>
 					</label>
 				</span>
                         <span class="input input--jiro">
-					<input class="input__field input__field--jiro" th:value="${session.User.emailAddress}" type="text" id="emailAddress" name="emailAddress" ></input>
+					<input class="input__field input__field--jiro" th:value="${session.User.emailAddress}" type="email" id="emailAddress" name="emailAddress" required="required"></input>
 					<label class="input__label input__label--jiro" for="emailAddress">
 						<span class="input__label-content input__label-content--jiro">Email*</span>
 					</label>
