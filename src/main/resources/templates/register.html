@@ -73,6 +73,7 @@
 	 		<h1 class="text-center main-title">System ankietyzacji PRz</h1>
 	 	</div>
 		<div class="content col-lg-8 col-xs-12">
+			<div class="alert alert-danger" th:if="${reg}==true"><strong>Ten login zostal juz wykorzystany. Spróbuj ponownie.</strong></div>
 			<form class="login-group" method="post" action="/user/register.try">
 			<div class="login-group-container">	
 				<span class="input input--jiro">

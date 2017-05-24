@@ -38,7 +38,8 @@ public class UserController {
             return "redirect:/";
         }
         else{
-            return "redirect:/badhome";
+            model.addAttribute("reg",true);
+            return "register";
         }
     }
     @PostMapping(value = "/login")
@@ -51,10 +52,8 @@ public class UserController {
         }
         else
         {
-            /*if(model.containsAttribute("user")){
-                model.asMap().remove("user");
-            }*/
-            return "redirect:/homebad";
+            model.addAttribute("log",true);
+            return "login";
         }
     }
     @GetMapping(value = "/logout")
