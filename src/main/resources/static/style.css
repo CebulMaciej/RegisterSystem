@@ -223,3 +223,16 @@ body{
 	transform: scale(1.1);
 	transition: .2s ease-in-out;
 }
+
+/*Error page with police image style*/
+.police-position img{
+	max-height: 500px;
+	margin: 0 auto;
+}
+
+h1.error-warning{
+	color: #ff3802;
+}
+.police-page{
+    margin-bottom: 100px;
+}
