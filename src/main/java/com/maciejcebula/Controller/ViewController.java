@@ -37,9 +37,9 @@ public class ViewController {
     public String zalogowano(Model model){
         return "home_zal";
     }
-    @GetMapping(path="/*/error")
-    public String homee(Model model){
-        return "error";
-    }
+    //@GetMapping(path="/*/error")
+    //public String homee(Model model){
+      //  return "error";
+    //}
 
 }

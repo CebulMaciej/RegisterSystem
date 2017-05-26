@@ -69,10 +69,11 @@ public class UserController {
     @GetMapping(value = "/panel")
     public String panel(Model model){
         if(model.containsAttribute("User")) {
+            User user = (User) model.asMap().get("User");
             return "panel";
         }
         else
-            return "unlogged";
+            return "error";
     }
     @GetMapping(value = "/update")
     public String getUpdate(Model model){

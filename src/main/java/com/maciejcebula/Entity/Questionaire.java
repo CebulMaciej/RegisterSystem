@@ -37,7 +37,7 @@ public class Questionaire {
 
     public Questionaire(String nazwa, int id_) {
 
-        this.ida = ida;
+        //this.ida = ida;
         Nazwa = nazwa;
         this.id_ = id_;
     }

@@ -26,7 +26,7 @@ public class UserRepository {
         this.jdbc = new JdbcTemplate(driverManagerDataSource);
     }
     public List<User> findAll(){
-        return jdbc.query("select id_, login, password, firstName, lastName, phoneNumber, emailAddress from Users",new RowMapper<User>(){
+        return jdbc.query("select id_, login, password, firstName, lastName, phoneNumber, emailAddress from users",new RowMapper<User>(){
             public User mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
                 User user = new User();
@@ -43,7 +43,7 @@ public class UserRepository {
     }
     public boolean register(User user){
         if(this.registerTry(user.getLogin())) {
-            jdbc.update("INSERT into Users(login,password, firstName, lastName, phoneNumber, emailAddress) values (?,?,?,?,?,?)"
+            jdbc.update("INSERT into users(login,password, firstName, lastName, phoneNumber, emailAddress) values (?,?,?,?,?,?)"
                     , user.getLogin(), user.getPassword(),user.getFirstName(),user.getLastName(),user.getPhoneNumber(),user.getEmailAddress());
             return true;
         }
@@ -77,7 +77,7 @@ public class UserRepository {
                 +"emailAddress=" + user.getEmailAddress()+ " "
                 +"Where Users.id_="+user.getId());
                 */
-        this.jdbc.update("update Users set password=?, firstName=?, lastName=?, phoneNumber=?, emailAddress=? where Users.id_=?",
+        this.jdbc.update("update users set password=?, firstName=?, lastName=?, phoneNumber=?, emailAddress=? where users.id_=?",
                 user.getPassword(),user.getFirstName(),user.getLastName(),user.getPhoneNumber(),user.getEmailAddress(),user.getId());
     }
 }
