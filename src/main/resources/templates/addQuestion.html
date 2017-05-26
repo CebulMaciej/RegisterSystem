@@ -72,8 +72,22 @@
             <h1 class="text-center main-title">System ankietyzacji PRz</h1>
         </div>
         <div class="content col-lg-8 col-xs-12">
-            <h2><span>Edytowana ankieta : </span><span th:text="${quest.Nazwa}"></span></h2>
-            <p><a class="btn btn-primary btn-lg" href="#" th:href="@{~/}+${quest.ida}+@{/edit/addquest}" role="button">Dodaj Pytanie &raquo;</a></p>
+            <form class="login-group" method="post" th:action="@{~/}+${id}+@{/edit/addquest}">
+                <div class="login-group-container">
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="text" id="Nazwa" name="Nazwa" ></input>
+					<label class="input__label input__label--jiro" for="Nazwa">
+						<span class="input__label-content input__label-content--jiro">Treść pytania</span>
+					</label>
+                </span>
+                    <span class="input input--jiro">
+					    <input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Stwórz"></input>
+                    </span>
+                </div>
+            </form>
+            <div class="below-form-options">
+
+            </div>
         </div>
     </div>
 </div>
