@@ -74,12 +74,32 @@
         <div class="content col-lg-8 col-xs-12">
             <h2><span>Edytowana ankieta : </span><span th:text="${quest.Nazwa}"></span></h2>
             <table class="table-bordered">
-                <tr th:each="quest : ${questions}">
-                    <td th:text="${quest.idp}"></td>
-                    <td th:text="${quest.name}"></td>
+                <tr th:each="quest : ${questiongroups}">
+                    <td th:text="${quest.idg}"></td>
+                    <td th:text="${quest.questionGroupName}"></td>
+                    <td>
+                        <form method="get" th:action="@{/}+${quest.idg}+@{/edit/addquestion}" class="horizontal">
+                            <!--BUTTON-->
+                            <div class="form-group">
+                                <div >
+                                    <input type="submit" value ="Dodaj pytanie do grupy" class="btn btn-warning btn-md "></input>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" th:action="@{userQuestionaries/delete/}+${quest.idg}" class="horizontal">
+                            <!--BUTTON-->
+                            <div class="form-group">
+                                <div >
+                                    <input type="submit" value ="Usuń" class="btn btn-danger btn-md "></input>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
                 </tr>
             </table>
-            <p><a class="btn btn-primary btn-lg" href="#" th:href="@{~/}+${quest.ida}+@{/edit/addquest}" role="button">Dodaj Pytanie &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg" href="#" th:href="@{~/}+${quest.ida}+@{/edit/addquestiongroup}" role="button">Dodaj Grupę pytań &raquo;</a></p>
         </div>
     </div>
 </div>

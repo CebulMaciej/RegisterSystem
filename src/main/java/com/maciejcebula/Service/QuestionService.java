@@ -23,6 +23,6 @@ public class QuestionService {
         return this.questionRepository.findAllByQuestionaireID(QuestID);
     }
     public void addNewQuestion(Question question){
-        this.questionRepository.addNewAnkieta(question);
+        this.questionRepository.addNewQuestion(question);
     }
 }

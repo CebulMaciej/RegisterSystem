@@ -24,7 +24,7 @@ public class QuestionaireService {
     }
 
     public void addNewQuestionaire(Questionaire quest){
-        questionaireRepository.addNewAnkieta(quest);
+        questionaireRepository.addNewQuestionary(quest);
     }
     public List<Questionaire> findAllUserQuestionaries(int id){
         return this.questionaireRepository.findUsersAllQuestionaries(id);

@@ -29,19 +29,21 @@ public class QuestionRepository {
     }
 
     public List<Question> findAllByQuestionaireID(int QuestID) {
-        return jdbc.query("select idp, name, ida from questions q where q.ida="+ Integer.toString(QuestID)+";", new RowMapper<Question>() {
+        return jdbc.query("Select q.idp,q.questionContent,q.idg,q.idt,q.isFirst from questions q inner join questiongroups qg on q.idg=qg.idg inner join questionaries qu on qg.ida=qu.ida where qu.ida = "+ Integer.toString(QuestID)+";", new RowMapper<Question>() {
             public Question mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
                 Question question = new Question();
                 question.setIdp(rs.getInt(1));
-                question.setName(rs.getString(2));
-                question.setIda(rs.getInt(3));
+                question.setQuestionContent(rs.getString(2));
+                question.setIdg(rs.getInt(3));
+                question.setIdt(rs.getInt(4));
+                question.setIsFirst(rs.getBoolean(5));
                 return question;
             }
         });
     }
-    public void addNewAnkieta(Question question) {
-        jdbc.update("INSERT into questions(name, ida) values (?,?)"
-                , question.getName(), question.getIda());
+    public void addNewQuestion(Question question) {
+        jdbc.update("INSERT into questions(questionContent, idg, idt,isFirst) values (?,?,?,?);"
+                , question.getQuestionContent(),question.getIdg(),question.getIdt(),question.getIsFirst());
     }
 }

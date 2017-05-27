@@ -4,39 +4,60 @@ package com.maciejcebula.Entity;
  * Created by Maciej Cebula on 25.05.2017.
  */
 public class Question {
-    private int idp;
-    private String name;
-    private int ida;
 
-    public Question(String name, int ida) {
-        this.name = name;
-        this.ida = ida;
+    private int idp;
+    private String questionContent;
+    private int idg;
+    private int idt;
+    private boolean isFirst;
+
+    public Question() {
+    }
+
+    public Question(String questionContent, int idg, int idt, boolean isFirst) {
+        this.questionContent = questionContent;
+        this.idg = idg;
+        this.idt = idt;
+        this.isFirst = isFirst;
     }
 
     public int getIdp() {
         return idp;
     }
 
-    public Question() {
-    }
-
     public void setIdp(int idp) {
         this.idp = idp;
     }
 
-    public String getName() {
-        return name;
+    public String getQuestionContent() {
+        return questionContent;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setQuestionContent(String questionContent) {
+        this.questionContent = questionContent;
     }
 
-    public int getIda() {
-        return ida;
+    public int getIdg() {
+        return idg;
     }
 
-    public void setIda(int ida) {
-        this.ida = ida;
+    public void setIdg(int idg) {
+        this.idg = idg;
+    }
+
+    public int getIdt() {
+        return idt;
+    }
+
+    public void setIdt(int idt) {
+        this.idt = idt;
+    }
+
+    public boolean getIsFirst() {
+        return isFirst;
+    }
+
+    public void setIsFirst(boolean first) {
+        isFirst = first;
     }
 }

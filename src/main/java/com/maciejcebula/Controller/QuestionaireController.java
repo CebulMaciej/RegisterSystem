@@ -1,7 +1,9 @@
 package com.maciejcebula.Controller;
 
+import com.maciejcebula.Entity.Question;
 import com.maciejcebula.Entity.Questionaire;
 import com.maciejcebula.Entity.User;
+import com.maciejcebula.Service.QuestionGroupService;
 import com.maciejcebula.Service.QuestionService;
 import com.maciejcebula.Service.QuestionaireService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +23,13 @@ import java.util.List;
 public class QuestionaireController {
 
     private QuestionaireService questionaireService;
+    private QuestionGroupService questionGroupService;
     private QuestionService questionService;
 
     @Autowired
-    public QuestionaireController(QuestionaireService question,QuestionService questionService){
+    public QuestionaireController(QuestionaireService question,QuestionGroupService questionGroupService,QuestionService questionService){
         this.questionaireService=question;
+        this.questionGroupService=questionGroupService;
         this.questionService=questionService;
     }
 
@@ -63,7 +67,7 @@ public class QuestionaireController {
         for(Questionaire quest : lista){
             if(quest.getIda()==id && quest.getId_()==user.getId()) {
                 model.addAttribute("quest",quest);
-                model.addAttribute("questions",this.questionService.findAllByQuestionaireID(id));
+                model.addAttribute("questiongroups",this.questionGroupService.findAllQuestionGroupsByQuestionarieID(id));
                 return "editQuestionary";
             }
         }

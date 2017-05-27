@@ -72,35 +72,25 @@
             <h1 class="text-center main-title">System ankietyzacji PRz</h1>
         </div>
         <div class="content col-lg-8 col-xs-12">
-            <h2 class="text-center main-title">Twoje ankiety:</h2>
-            <div class="col-md-offset-4 col-md-5 col-md-offset-3">
-            <table class="table-bordered">
-                    <tr th:each="quest : ${quests}">
-                        <td th:text="${quest.ida}"></td>
-                        <td th:text="${quest.Nazwa}"></td>
-                        <td>
-                            <form method="get" th:action="@{userQuestionaries/edit/}+${quest.ida}" class="horizontal">
-                            <!--BUTTON-->
-                                <div class="form-group">
-                                    <div >
-                                        <input type="submit" value ="Edytuj" class="btn btn-warning btn-md "></input>
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="get" th:action="@{userQuestionaries/delete/}+${quest.ida}" class="horizontal">
-                                <!--BUTTON-->
-                                <div class="form-group">
-                                    <div >
-                                        <input type="submit" value ="Usuń" class="btn btn-danger btn-md "></input>
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
-                    </tr>
-            </table>
-            </div>
+            <form class="login-group" method="post" th:action="@{~/}+${QuestID}+@{/edit/addquestiongroup}">
+                <div class="login-group-container">
+				<span class="input input--jiro">
+					<input class="input__field input__field--jiro" type="text" id="questionGroupName" name="questionGroupName" ></input>
+					<label class="input__label input__label--jiro" for="questionGroupName">
+						<span class="input__label-content input__label-content--jiro">Nazwa grupy</span>
+					</label>
+                </span>
+                    <span>
+                        <input type="checkbox" id="isMetrics" name="isMetrics"></input>
+                        <label class="input__label input__label--jiro" for="isMetrics">
+						<span class="input__label-content input__label-content--jiro">Czy jest to metryka?</span>
+					    </label>
+                    </span>
+                    <span class="input input--jiro">
+					    <input class="btn btn-default btn-lg btn-block" type="submit" name="send" value="Stwórz"></input>
+                    </span>
+                </div>
+            </form>
             <div class="below-form-options">
 
             </div>

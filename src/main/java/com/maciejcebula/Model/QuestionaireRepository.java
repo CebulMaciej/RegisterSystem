@@ -39,7 +39,7 @@ public class QuestionaireRepository {
             });
         }
 
-        public void addNewAnkieta(Questionaire questionaire) {
+        public void addNewQuestionary(Questionaire questionaire) {
             jdbc.update("INSERT into questionaries(name, id_) values (?,?)"
                         , questionaire.getNazwa(), questionaire.getId_());
         }
