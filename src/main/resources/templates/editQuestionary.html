@@ -73,16 +73,15 @@
         </div>
         <div class="content col-lg-8 col-xs-12">
             <h2><span>Edytowana ankieta : </span><span th:text="${quest.Nazwa}"></span></h2>
-            <table class="table-bordered">
-                <tr th:each="lis : ${lista}">
+            <table class="table-bordered" th:each="lis : ${lista}">
+                <tr>
                     <td th:text="${lis.object.idg}"></td>
-                    <td th:text="${lis.object.questionGroupName}">
-                    <table>
-                        <tr th:each="ques : ${lis.list}">
+                    <td th:text="${lis.object.questionGroupName}"></td>
+                </tr>
+                        <tr th:each="ques :${lis.list}">
                             <td th:text="${ques.questionContent}"></td>
                         </tr>
-                    </table>
-                    </td>
+                <tr>
                     <td>
                         <form method="get" th:action="@{/}+${lis.object.idg}+@{/edit/addquestion}" class="horizontal">
                             <!--BUTTON-->
