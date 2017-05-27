@@ -42,6 +42,20 @@ public class QuestionRepository {
             }
         });
     }
+    public List<Question> findAllByGroupID(int GroupID) {
+        return jdbc.query("Select q.idp,q.questionContent,q.idg,q.idt,q.isFirst from questions q inner join questiongroups qg on q.idg=qg.idg where qu.idg = "+ Integer.toString(GroupID)+";", new RowMapper<Question>() {
+            public Question mapRow(ResultSet rs, int rowNum)
+                    throws SQLException {
+                Question question = new Question();
+                question.setIdp(rs.getInt(1));
+                question.setQuestionContent(rs.getString(2));
+                question.setIdg(rs.getInt(3));
+                question.setIdt(rs.getInt(4));
+                question.setIsFirst(rs.getBoolean(5));
+                return question;
+            }
+        });
+    }
     public void addNewQuestion(Question question) {
         jdbc.update("INSERT into questions(questionContent, idg, idt,isFirst) values (?,?,?,?);"
                 , question.getQuestionContent(),question.getIdg(),question.getIdt(),question.getIsFirst());
