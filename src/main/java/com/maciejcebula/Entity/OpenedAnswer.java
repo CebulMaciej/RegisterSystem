@@ -3,10 +3,10 @@ package com.maciejcebula.Entity;
 /**
  * Created by Maciej Cebula on 27.05.2017.
  */
-public class OpenedAnswers {
+public class OpenedAnswer {
     private int idoa;
 
-    public OpenedAnswers() {
+    public OpenedAnswer() {
     }
 
     public int getIdoa() {

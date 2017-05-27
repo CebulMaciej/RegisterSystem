@@ -73,4 +73,9 @@ public class QuestionaireController {
         }
         return "error";
     }
+    @GetMapping(value="/{id}/preview")
+    public String questionaryPreview(Model model,@PathVariable int id){
+        //TODO
+        return "";
+    }
 }
