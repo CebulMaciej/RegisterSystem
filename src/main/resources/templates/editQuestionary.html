@@ -83,14 +83,7 @@
                         </tr>
                 <tr>
                     <td>
-                        <form method="get" th:action="@{/}+${lis.object.idg}+@{/edit/addquestion}" class="horizontal">
-                            <!--BUTTON-->
-                            <div class="form-group">
-                                <div >
-                                    <input type="submit" value ="Dodaj pytanie do grupy" class="btn btn-warning btn-md "></input>
-                                </div>
-                            </div>
-                        </form>
+                        <p><a class="btn btn-primary btn-lg" href="#" th:href="@{~/}+${lis.object.idg}+@{/edit/addquestion}" role="button">Dodaj pytanie &raquo;</a></p>
                     </td>
                 </tr>
             </table>
