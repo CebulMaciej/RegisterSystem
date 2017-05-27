@@ -1,8 +1,6 @@
 package com.maciejcebula.Controller;
 
-import com.maciejcebula.Entity.Question;
-import com.maciejcebula.Entity.Questionaire;
-import com.maciejcebula.Entity.User;
+import com.maciejcebula.Entity.*;
 import com.maciejcebula.Service.QuestionGroupService;
 import com.maciejcebula.Service.QuestionService;
 import com.maciejcebula.Service.QuestionaireService;
@@ -12,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -67,7 +67,13 @@ public class QuestionaireController {
         for(Questionaire quest : lista){
             if(quest.getIda()==id && quest.getId_()==user.getId()) {
                 model.addAttribute("quest",quest);
-                model.addAttribute("questiongroups",this.questionGroupService.findAllQuestionGroupsByQuestionarieID(id));
+                List<Pomocnicza> tmp2 = new ArrayList<Pomocnicza>();
+                for (QuestionGroup q:this.questionGroupService.findAllQuestionGroupsByQuestionarieID(id)
+                     ) {
+                    tmp2.add(new Pomocnicza(q,this.questionService.findAllByQuestionGroupID(q.getIdg())));
+
+                }
+                model.addAttribute("lista",tmp2);
                 return "editQuestionary";
             }
         }

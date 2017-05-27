@@ -43,7 +43,7 @@ public class QuestionRepository {
         });
     }
     public List<Question> findAllByGroupID(int GroupID) {
-        return jdbc.query("Select q.idp,q.questionContent,q.idg,q.idt,q.isFirst from questions q inner join questiongroups qg on q.idg=qg.idg where qu.idg = "+ Integer.toString(GroupID)+";", new RowMapper<Question>() {
+        return jdbc.query("Select q.idp,q.questionContent,q.idg,q.idt,q.isFirst from questions q inner join questiongroups qg on q.idg=qg.idg where qg.idg = "+ Integer.toString(GroupID)+";", new RowMapper<Question>() {
             public Question mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
                 Question question = new Question();

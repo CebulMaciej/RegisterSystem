@@ -25,4 +25,7 @@ public class QuestionService {
     public void addNewQuestion(Question question){
         this.questionRepository.addNewQuestion(question);
     }
+    public List<Question> findAllByQuestionGroupID(int id){
+        return this.questionRepository.findAllByGroupID(id);
+    }
 }
