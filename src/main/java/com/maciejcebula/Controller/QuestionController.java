@@ -5,15 +5,13 @@ import com.maciejcebula.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Maciej Cebula on 25.05.2017.
  */
 @Controller
+@SessionAttributes({"name","User"})
 @RequestMapping("/")
 public class QuestionController {
     private QuestionService questionService;
@@ -29,8 +27,8 @@ public class QuestionController {
     }
     @PostMapping(value="{id}/edit/addquest")
     public String questionAdd(Model model,@PathVariable int id,Question question){
-        this.questionService.addNewQuestion(question);
         question.setIda(id);
-        return "redirect:/userQuestionaries/edit/{"+Integer.toString(id)+"}";
+        this.questionService.addNewQuestion(question);
+        return "redirect:/userQuestionaries/edit/"+id;
     }
 }
