@@ -18,16 +18,19 @@ public class UserService {
     UserService(UserRepository userRepository){
         this.repo=userRepository;
     }
-    public List<User> getAllUsers(){
-       return repo.findAll();
-    }
-    public boolean addUserToDataBase(User user){
+    public boolean addUserToDataBase(User user) {
         return repo.register(user);
-    }
-    public User login(User user){
-        return repo.loginTry(user);
     }
     public void updateUser(User user){
         this.repo.updateUser(user);
+    }
+    public User login(User user){
+        List<User> list = this.repo.findUser(user);
+        for (User us: list) {
+            if(us.getLogin().equals(user.getLogin())&&us.getPassword().equals(user.getPassword())){
+                return us;
+            }
+        }
+        return null;
     }
 }

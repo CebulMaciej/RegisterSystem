@@ -1,6 +1,7 @@
 package com.maciejcebula.Model;
 
 import com.maciejcebula.Entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -15,18 +16,14 @@ import java.util.List;
  */
 @Repository
 public class UserRepository {
-    private JdbcTemplate jdbc;
+    private DatabaseConnection data;
 
-    public UserRepository(){
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("org.postgresql.Driver");
-        driverManagerDataSource.setUrl("jdbc:postgresql://localhost:5432/mydb");
-        driverManagerDataSource.setUsername("postgres");
-        driverManagerDataSource.setPassword("postgres");
-        this.jdbc = new JdbcTemplate(driverManagerDataSource);
+    @Autowired
+    public UserRepository(DatabaseConnection databaseConnection){
+        this.data=databaseConnection;
     }
-    public List<User> findAll(){
-        return jdbc.query("select id_, login, password, firstName, lastName, phoneNumber, emailAddress from users",new RowMapper<User>(){
+    public List<User> findUser(User user){
+        return data.getJdbcTemplate().query("select id_, login, password, firstName, lastName, phoneNumber, emailAddress from users u where u.login='"+ user.getLogin()+"';",new RowMapper<User>(){
             public User mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
                 User user = new User();
@@ -42,32 +39,13 @@ public class UserRepository {
         });
     }
     public boolean register(User user){
-        if(this.registerTry(user.getLogin())) {
-            jdbc.update("INSERT into users(login,password, firstName, lastName, phoneNumber, emailAddress) values (?,?,?,?,?,?)"
-                    , user.getLogin(), user.getPassword(),user.getFirstName(),user.getLastName(),user.getPhoneNumber(),user.getEmailAddress());
+        if(this.findUser(user)!=null) {
+            data.getJdbcTemplate().update("INSERT into users(login,password, firstName, lastName, phoneNumber, emailAddress) values (?,?,?,?,?,?)"
+                    , user.getLogin(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getPhoneNumber(), user.getEmailAddress());
             return true;
         }
-        else
             return false;
-    }
-    public User loginTry(User user){
-        List<User> users = this.findAll();
-        for (User us : users){
-           if(us.getLogin().equals(user.getLogin())&&us.getPassword().equals(user.getPassword())){
-               return us;
-           }
         }
-        return null;
-    }
-    private boolean registerTry(String login){
-        List<User> users = this.findAll();
-        for (User us : users){
-            if(login.equals(us.getLogin())){
-                return false;
-            }
-        }
-        return true;
-    }
     public void updateUser(User user){
         /*this.jdbc.update("Update Users SET password="
                 +user.getPassword()+","
@@ -77,7 +55,7 @@ public class UserRepository {
                 +"emailAddress=" + user.getEmailAddress()+ " "
                 +"Where Users.id_="+user.getId());
                 */
-        this.jdbc.update("update users set password=?, firstName=?, lastName=?, phoneNumber=?, emailAddress=? where users.id_=?",
+        this.data.getJdbcTemplate().update("update users set password=?, firstName=?, lastName=?, phoneNumber=?, emailAddress=? where users.id_=?",
                 user.getPassword(),user.getFirstName(),user.getLastName(),user.getPhoneNumber(),user.getEmailAddress(),user.getId());
     }
 }
