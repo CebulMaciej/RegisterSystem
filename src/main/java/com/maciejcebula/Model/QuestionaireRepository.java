@@ -23,23 +23,9 @@ public class QuestionaireRepository {
         public QuestionaireRepository(DatabaseConnection databaseConnection) {
             this.data=databaseConnection;
         }
-
-        public List<Questionaire> findAll() {
-            return data.getJdbcTemplate().query("select ida, name, id_ from questionaries", new RowMapper<Questionaire>() {
-                public Questionaire mapRow(ResultSet rs, int rowNum)
-                        throws SQLException {
-                    Questionaire questionaire = new Questionaire();
-                    questionaire.setIda(rs.getInt(1));
-                    questionaire.setNazwa(rs.getString(2));
-                    questionaire.setId_(rs.getInt(3));
-                    return questionaire;
-                }
-            });
-        }
-
-        public void addNewAnkieta(Questionaire questionaire) {
+        public void addNewQuestionaire(Questionaire questionaire) {
             data.getJdbcTemplate().update("INSERT into questionaries(name, id_) values (?,?)"
-                        , questionaire.getNazwa(), questionaire.getId_());
+                        , questionaire.getTitle(), questionaire.getId_());
         }
         public List<Questionaire> findUsersAllQuestionaries(int id){
             return data.getJdbcTemplate().query("select ida,name from questionaries,users where questionaries.id_=users.id_ and users.id_="+Integer.toString(id)+";", new RowMapper<Questionaire>() {
@@ -47,7 +33,7 @@ public class QuestionaireRepository {
                         throws SQLException {
                     Questionaire questionaire = new Questionaire();
                     questionaire.setIda(rs.getInt(1));
-                    questionaire.setNazwa(rs.getString(2));
+                    questionaire.setTitle(rs.getString(2));
                     questionaire.setId_(id);
                     return questionaire;
                 }

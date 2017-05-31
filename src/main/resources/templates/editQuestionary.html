@@ -72,7 +72,7 @@
             <h1 class="text-center main-title">System ankietyzacji PRz</h1>
         </div>
         <div class="content col-lg-8 col-xs-12">
-            <h2><span>Edytowana ankieta : </span><span th:text="${quest.Nazwa}"></span></h2>
+            <h2><span>Edytowana ankieta : </span><span th:text="${quest.title}"></span></h2>
             <form method="post" th:action="@{~/Questionaries/edit/}+${quest.ida}+@{/add}" class="horizontal">
                 <!--BUTTON-->
                 <div class="form-group">

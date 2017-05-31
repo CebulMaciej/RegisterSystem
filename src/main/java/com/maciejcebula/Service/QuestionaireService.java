@@ -15,16 +15,12 @@ public class QuestionaireService {
     private QuestionaireRepository questionaireRepository;
 
     @Autowired
-    public QuestionaireService(QuestionaireRepository ankieta){
-        this.questionaireRepository =ankieta;
-    }
-
-    public List<Questionaire> findAllQuestionaries(){
-        return questionaireRepository.findAll();
+    public QuestionaireService(QuestionaireRepository repo){
+        this.questionaireRepository =repo;
     }
 
     public void addNewQuestionaire(Questionaire quest){
-        questionaireRepository.addNewAnkieta(quest);
+        questionaireRepository.addNewQuestionaire(quest);
     }
     public List<Questionaire> findAllUserQuestionaries(int id){
         return this.questionaireRepository.findUsersAllQuestionaries(id);

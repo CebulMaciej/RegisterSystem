@@ -18,13 +18,9 @@ public class Questionaire {
         this.ida = ida;
     }
 
-
-
-
     public int getId_() {
         return id_;
     }
-
     public void setId_(int id_) {
         this.id_ = id_;
     }

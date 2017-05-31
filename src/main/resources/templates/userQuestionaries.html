@@ -77,7 +77,7 @@
             <table class="table-bordered">
                     <tr th:each="quest : ${quests}">
                         <td th:text="${quest.ida}"></td>
-                        <td th:text="${quest.Nazwa}"></td>
+                        <td th:text="${quest.title}"></td>
                         <td>
                             <form method="get" th:action="@{userQuestionaries/edit/}+${quest.ida}" class="horizontal">
                             <!--BUTTON-->
