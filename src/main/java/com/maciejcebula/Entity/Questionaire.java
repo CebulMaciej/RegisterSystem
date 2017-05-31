@@ -1,11 +1,13 @@
 package com.maciejcebula.Entity;
 
+import java.util.Date;
+
 /**
  * Created by Maciej Cebula on 27.04.2017.
  */
 public class Questionaire {
     private int ida;
-    private String Nazwa;
+    private String title;
     private int id_;
 
     public int getIda() {
@@ -27,18 +29,18 @@ public class Questionaire {
         this.id_ = id_;
     }
 
-    public String getNazwa() {
-        return Nazwa;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNazwa(String nazwa) {
-        Nazwa = nazwa;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Questionaire(String nazwa, int id_) {
+    public Questionaire(String title, int id_) {
 
         //this.ida = ida;
-        Nazwa = nazwa;
+        this.title=title;
         this.id_ = id_;
     }
 
