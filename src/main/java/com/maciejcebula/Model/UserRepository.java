@@ -47,14 +47,6 @@ public class UserRepository {
             return false;
         }
     public void updateUser(User user){
-        /*this.jdbc.update("Update Users SET password="
-                +user.getPassword()+","
-                +"firstName="+user.getFirstName()+","
-                +"lastName=" + user.getLastName()+ ","
-                +"phoneNumber=" + user.getPhoneNumber()+","
-                +"emailAddress=" + user.getEmailAddress()+ " "
-                +"Where Users.id_="+user.getId());
-                */
         this.data.getJdbcTemplate().update("update users set password=?, firstName=?, lastName=?, phoneNumber=?, emailAddress=? where users.id_=?",
                 user.getPassword(),user.getFirstName(),user.getLastName(),user.getPhoneNumber(),user.getEmailAddress(),user.getId());
     }

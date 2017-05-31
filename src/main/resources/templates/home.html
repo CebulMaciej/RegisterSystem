@@ -66,7 +66,7 @@
 	</div>
 </nav>
 <!-- /.navbar-end -->
-		<div class="jumbotron">
+		<div th:if="${session.User}==null" class="jumbotron">
 			<div class="container">
 				<h1>System Ankietyzacji</h1>
 				<p>Wspanialy system ankietyzacji stworzony w technologii Java a nie w PEHAPE!</p>
